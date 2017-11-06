@@ -1,0 +1,5 @@
+#!/bin/bash
+chrome --headless --disable-gpu --no-sandbox $@ &
+chrome=$!
+
+wait $chrome
