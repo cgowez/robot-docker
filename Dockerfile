@@ -1,16 +1,17 @@
-FROM httpd:latest
+FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get install -y python python-pip gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6
+RUN apt-get install -y python python-pip gcc wget curl unzip libdbus-glib-1-dev libgtk2.0-0
 
+RUN pip install --upgrade pip
 RUN pip install robotframework
 RUN pip install robotframework-selenium2library
 RUN pip install robotframework-faker
 RUN pip install robotframework-pabot
 
-ENV CHROMEDRIVER_VERSION 2.33
-ENV GECKODRIVER_VERSION 0.19.0
-ENV FIREFOXBROWSER_VERSION 57.0b13
+ENV CHROMEDRIVER_VERSION 2.38
+ENV GECKODRIVER_VERSION 0.20.1
+ENV FIREFOXBROWSER_VERSION 60.0.1
 
 WORKDIR /robot
 
@@ -18,7 +19,6 @@ ADD utils/headless-chrome /usr/bin/headless-chrome
 RUN chmod a+x /usr/bin/headless-chrome
 ADD utils/headless-firefox /usr/bin/headless-firefox
 RUN chmod a+x /usr/bin/headless-firefox
-ADD utils/listener.py /opt/listener.py
 
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
