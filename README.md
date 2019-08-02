@@ -47,7 +47,7 @@ This creates an image based on the Dockerfile then create a container sharing a 
 ### 2) Run Robot tests:
 
 ```
-./run_test.sh
+./robot.sh
 ```
 
 This creates a new container using the shared volume (created in step 1), it will run any Robot Suite that it's under robot-docker/ and logs,
