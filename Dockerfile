@@ -1,7 +1,5 @@
 FROM debian:stretch-slim
-ENV CHROMEDRIVER_VERSION 2.41
-ENV GECKODRIVER_VERSION 0.20.1
-ENV FIREFOXBROWSER_VERSION 60.0.1
+ENV FIREFOXBROWSER_VERSION 68.0.1
 ENV DEPS wget curl unzip
 
 RUN apt-get update \
@@ -33,14 +31,10 @@ wait $ff' > /usr/bin/headless-firefox \
  && ln -s /usr/bin/headless-chrome /usr/bin/google-chrome \
  && chmod a+x /usr/bin/headless-chrome \
  && chmod a+x /usr/bin/headless-firefox \
- ## Download Browser Drivers
- && curl -SLO "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip" \
- && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
- && rm "chromedriver_linux64.zip" \
- && curl -SLO "https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz" \
- && tar zxvf "geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz" -C /usr/local/bin \
- && rm "geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz" \
  ## Install robotFramework and deps
- && pip install robotframework robotframework-selenium2library robotframework-faker robotframework-pabot
+ && pip install --upgrade pip \
+ && pip install robotframework robotframework-seleniumlibrary robotframework-faker webdrivermanager \
+ ## Download Browser Drivers
+ && webdrivermanager firefox chrome --linkpath /usr/bin
 
  WORKDIR /robot

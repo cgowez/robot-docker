@@ -16,19 +16,19 @@ Your script repository must be checked out as a git submodule of this repository
 
 * robotframework: latest
 
-* robotframework-selenium2library: latest
+* robotframework-seleniumlibrary: latest
 
 * robotframework-faker: latest
 
 * robotframework-pabot: latest
 
-* Chrome webdriver: 2.38
+* Chrome webdriver: latest
 
-* Gecko webdriver: 0.20.1
+* Gecko webdriver: latest
 
 * Chrome browser: latest
 
-* Firefox browser: 60.0.1
+* Firefox browser: 68.0.1
 
 
 ### Pre-requisites ###

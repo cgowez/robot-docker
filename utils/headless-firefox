@@ -1,5 +1,0 @@
-#!/bin/bash
-firefox-browser -headless $@ &
-ff=$!
-
-wait $ff
