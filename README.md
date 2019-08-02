@@ -69,7 +69,7 @@ Remove any container that belongs to the Robot Framework image and also Robot im
 
 3. Input those values in "browserstack.py" file
 
-4. Run your tests: ./run_test.sh -V env/browserstack.py
+4. Run your tests: ./robot.sh -V env/browserstack.py
 
 ### Run local scripts in Microsoft Internet Explorer (Saucelabs)
 
@@ -79,7 +79,7 @@ Remove any container that belongs to the Robot Framework image and also Robot im
 
 3. Input those values in "saucelabs.py" file
 
-4. Run your tests: ./run_test.sh -V env/saucelabs.py
+4. Run your tests: ./robot.sh -V env/saucelabs.py
 
 ## Sending parameters to the scripts ##
 
@@ -88,7 +88,7 @@ You can send parameters as part of pybot command line
 e.g.
 ```
 
-./run_test.sh -v URL:https://www.amazon.com -v BROWSER:firefox -V env/sitchrome.py
+./robot.sh -v URL:https://www.amazon.com -v BROWSER:firefox
 
 ```
 
@@ -96,5 +96,5 @@ This is sent to the container like this:
 
 ```
 
-pybot -v URL:https://www.amazon.com -v BROWSER:firefox -V env/sitchrome.py --outputdir reports/ --listener /opt/listener.py tests/
+robot -v URL:https://www.amazon.com -v BROWSER:firefox --outputdir reports/
 ```
