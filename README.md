@@ -28,7 +28,7 @@ Your script repository must be checked out as a git submodule of this repository
 
 * Chrome browser: latest
 
-* Firefox browser: 68.0.1
+* Firefox browser: 74.0
 
 
 ### Pre-requisites ###
@@ -47,7 +47,7 @@ This creates an image based on the Dockerfile then create a container sharing a 
 ### 2) Run Robot tests:
 
 ```
-./robot.sh
+./robot test/
 ```
 
 This creates a new container using the shared volume (created in step 1), it will run any Robot Suite that it's under robot-docker/ and logs,
@@ -88,7 +88,7 @@ You can send parameters as part of pybot command line
 e.g.
 ```
 
-./robot.sh -v URL:https://www.amazon.com -v BROWSER:firefox
+./robot -v URL:https://www.amazon.com -v BROWSER:firefox
 
 ```
 
